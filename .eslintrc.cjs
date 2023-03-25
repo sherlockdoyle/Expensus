@@ -21,6 +21,7 @@ const config = {
   plugins: ["@typescript-eslint"],
   extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   rules: {
+    'max-len': ['error', { 'code': 120 }],
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {

@@ -1,9 +1,11 @@
-import { MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { AppHeader } from "~/components/Header";
 
 const Home: NextPage = () => {
+  const [colorScheme, setColorScheme] = useState("dark");
+
   return (
     <>
       <Head>
@@ -12,11 +14,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MantineProvider withNormalizeCSS withGlobalStyles theme={{ colorScheme: "dark" }}>
-        <main>
-          <AppHeader />
-        </main>
-      </MantineProvider>
+      <ColorSchemeProvider>
+        <MantineProvider
+          withNormalizeCSS
+          withGlobalStyles
+          theme={{ colorScheme: "dark" }}
+        >
+          <main>
+            <AppHeader />
+          </main>
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 };
